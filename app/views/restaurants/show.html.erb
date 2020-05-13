@@ -6,5 +6,14 @@
   <p><%= review.rating %></p>
   <p><%= review.content %></p>
 <% end %>
+<h1>Add a review</h1>
+<div class="container">
+  <%= simple_form_for [@restaurant, @review] do |f| %>
+    <%= f.input :content %>
+    <%= f.input :rating, input_html: { min: '0', max: '5'} %>
+    <%= f.submit "Submit review", class: "btn btn-primary" %>
+  <% end %>
+</div>
+
 <%= link_to "List of restaurants", restaurants_path %>
-<%= link_to 'Leave a review', new_restaurant_review_path(@restaurant) %>
+
