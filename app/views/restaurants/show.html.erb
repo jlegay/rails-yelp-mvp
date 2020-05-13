@@ -2,4 +2,9 @@
 <p><%= @restaurant.address %></p>
 <p><%= @restaurant.phone_number %></p>
 <p>Type : <%= @restaurant.category %></p>
+<% @restaurant.reviews.each do |review| %>
+  <p><%= review.rating %></p>
+  <p><%= review.content %></p>
+<% end %>
 <%= link_to "List of restaurants", restaurants_path %>
+<%= link_to 'Leave a review', new_restaurant_review_path(@restaurant) %>
